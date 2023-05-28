@@ -52,7 +52,6 @@ async def predict_price(
     request: PricePredictionRequest, 
     service: PricePredictionService = Depends(get_price_prediction_service)
 ):
-    # TODO : complete the function (always return 1 for now)
     return PricePredictionResponse(
         predicted_value=service.predict_price(request)
     )
