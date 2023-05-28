@@ -7,13 +7,6 @@ from app.dto.price_prediction import PricePredictionRequest, PricePredictionResp
 
 import pickle 
 
-import pandas as pd
-
-import numpy as np
-
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
-
 class PricePredictionService:
     
     def __init__(self, model_path: str):
