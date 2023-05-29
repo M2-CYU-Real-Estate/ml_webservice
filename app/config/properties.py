@@ -8,7 +8,6 @@ class Properties(BaseSettings):
     """
     api_version: str = "1.0"
     regression_model_path: str
-    suggestion_model_path: str
     
     class Config:
         """An inner configuration class for defining how to retrieve

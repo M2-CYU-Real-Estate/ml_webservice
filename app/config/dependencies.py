@@ -16,6 +16,3 @@ def get_api_version(properties: Properties = Depends(get_properties)) -> str:
 
 def get_regression_model_path(properties: Properties = Depends(get_properties)) -> str:
     return properties.regression_model_path
-
-def get_suggestion_model_path(properties: Properties = Depends(get_properties)) -> str:
-    return properties.suggestion_model_path

@@ -6,10 +6,12 @@ from pydantic import BaseModel
 from app.dto.health_check import HealthCheckResponse
 
 from app.dto.price_prediction import PricePredictionRequest, PricePredictionResponse
+from app.dto.get_suggestions import GetSuggestionsRequest, GetSuggestionsResponse
 
 from .services.dependencies import get_health_service, get_price_prediction_service
 from .services.health import HealthService
 from .services.price_prediction.PricePredictionService import PricePredictionService
+from .services.get_suggestions.GetSuggestionsService import GetSuggestionsService
 
 # ==== SETUP APPLICATION ====
 app = FastAPI()
@@ -58,5 +60,11 @@ async def predict_price(
 
 
 # ---- Suggestion task ----
-
-# TODO: create route for regression task (do not forget the "async" keyword !)
+@app.post("/get-suggestions", response_model=GetSuggestionsResponse)
+async def get_suggestions(
+    request: GetSuggestionsRequest, 
+    service: GetSuggestionsService = Depends()
+):
+    return GetSuggestionsResponse(
+        properties_to_suggest=service.get_suggestions(request)
+    )
