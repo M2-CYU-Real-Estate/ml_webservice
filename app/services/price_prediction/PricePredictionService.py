@@ -27,5 +27,5 @@ class PricePredictionService:
         
     def predict_price(self, request: PricePredictionRequest) -> int:
         # perform the prediction
-        data_request = [request.house_area, request.rooms, request.ground_area, float(request.latitude), float(request.longitude)]
+        data_request = [request.house_area, request.rooms, request.ground_area, float(request.longitude), float(request.latitude)]
         return int(self.model.predict([data_request])[0])
