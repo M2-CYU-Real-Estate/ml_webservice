@@ -62,7 +62,8 @@ class GetSuggestionsService:
 
         df_similar_properties = df_similar_properties.drop_duplicates()
         
-        df_similar_properties = df_similar_properties.sample(nbr_similar_property)
+        if len(df_similar_properties) > nbr_similar_property:
+            df_similar_properties = df_similar_properties.sample(nbr_similar_property)
         return [json.loads(property.to_json()) for index, property in df_similar_properties.iterrows()]
         
         #result = self.content_based_algorithm_description(properties_user_pref, df_similar_properties)
