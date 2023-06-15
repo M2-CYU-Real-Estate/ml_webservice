@@ -78,6 +78,7 @@ class GetSuggestionsService:
                 dict_ball_trees[dep] = {}
             for cluster in df_properties_by_dep['cluster'].unique():
                 if cluster not in dict_ball_trees[dep].keys():
+                    print(f"dep : {dep}, cluster : {cluster}")
                     df_cluster = df_properties_by_cluster[(df_properties_by_cluster['cluster'] == cluster) 
                                                            & (df_properties_by_cluster['code_departement'] == dep)]
                     
