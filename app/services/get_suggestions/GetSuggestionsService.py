@@ -53,7 +53,7 @@ class GetSuggestionsService:
         dict_ball_tree_model = self.create_ball_trees_model(df_properties_by_cluster)
         
         
-        while len(df_similar_properties) < nbr_similar_property and iteration_suggestion < 3:
+        while len(df_similar_properties) < nbr_similar_property and iteration_suggestion < 40:
             df_similar_properties = pd.DataFrame()
             for index, row in df_properties_user_pref.iterrows():
                 ball_tree_model = dict_ball_tree_model[row['code_departement']][row['cluster']]
